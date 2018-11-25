@@ -10,5 +10,3 @@ services:
     - DURATION
     - RHD_DRUPAL_USER
     - RHD_DRUPAL_PASSWORD
-
-

@@ -26,5 +26,4 @@ trait Scenarios {
     .exec(navigateToEvents)
     .pause(1 seconds, 10 seconds)
 
-
 }
