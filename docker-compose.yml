@@ -8,7 +8,6 @@ services:
     environment:
     - RHD_PERF_TEST_URL
     - DURATION
-    - RAMP_UP_TIME
     - RHD_DRUPAL_USER
     - RHD_DRUPAL_PASSWORD
 
