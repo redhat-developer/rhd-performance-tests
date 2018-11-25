@@ -6,8 +6,6 @@ import scala.concurrent.duration._
 
 trait Scenarios {
 
-  lazy val baseUrl: String = System.getProperty("baseUrl")
-
   val authenticatedDrupalUser = scenario("Authenticated RHD Drupal User")
     .exec(navigateHome)
     .pause(1 seconds, 10 seconds)
@@ -27,6 +25,5 @@ trait Scenarios {
     .pause(1 seconds, 10 seconds)
     .exec(navigateToEvents)
     .pause(1 seconds, 10 seconds)
-
 
 }
