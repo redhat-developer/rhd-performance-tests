@@ -1,0 +1,11 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/*
+.idea/misc.xml
+.idea/sbt.xml
+project/project/
+project/target/
+target/
+.idea/libraries/
+.idea/modules.xml
+.idea/scala_compiler.xml
+.idea/vcs.xml
