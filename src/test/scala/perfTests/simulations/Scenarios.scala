@@ -6,7 +6,7 @@ import scala.concurrent.duration._
 
 trait Scenarios {
 
-  lazy val baseUrl = sys.env.getOrElse("RHD_PERF_TEST_URL", "https://developers.dev.redhat.com")
+  lazy val baseUrl: String = System.getProperty("baseUrl")
 
   val authenticatedDrupalUser = scenario("Authenticated RHD Drupal User")
     .exec(navigateHome)
