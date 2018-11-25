@@ -7,7 +7,7 @@ function build {
 }
 
 function run_tests_in_docker {
-  export PROPERTIES="-DdrupalUser=$RHD_DRUPAL_USER -DdrupalUserPassword=$RHD_DRUPAL_PASSWORD -DbaseUrl=$RHD_PERF_TEST_URL -DrampUpTime=$RAMP_UP_TIME -Dduration=$DURATION"
+  export PROPERTIES="-DdrupalUser=$RHD_DRUPAL_USER -DdrupalUserPassword=$RHD_DRUPAL_PASSWORD -DbaseUrl=$RHD_PERF_TEST_URL -Dduration=$DURATION"
   docker-compose -p rhd_perf_testing run --rm --no-deps rhd_perf_testing sbt "; clean; set javaOptions ++= \"${PROPERTIES}\".split(\" \").toSeq ; gatling:testOnly perfTests.simulations.LoadTest"
   echo "\n Completed performance tests. \n"
 }
