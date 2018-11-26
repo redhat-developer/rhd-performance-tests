@@ -6,13 +6,17 @@ import scala.concurrent.duration._
 
 class LoadTest extends Simulation with Scenarios {
 
-  lazy val duration:Int = System.getProperty("duration").toInt
+  lazy val maxDuration: Int = System.getProperty("maxDuration").toInt
+  lazy val rampUpUsers: Int = System.getProperty("rampUpUsers").toInt
+  lazy val rampUpAdmins: Int = System.getProperty("rampUpAdmins").toInt
 
-    setUp(
-      authenticatedDrupalUser.inject(
-        rampConcurrentUsers(1) to 5 during (1 minutes),
-        constantConcurrentUsers(5) during (1 minutes)),
-      unauthenticatedRHDUser.inject(
-        rampConcurrentUsers(1) to 10 during (1 minutes),
-        constantConcurrentUsers(10) during (1 minutes))).maxDuration(duration minutes).protocols(httpProtocol)
+  setUp(
+    users
+      .inject(rampUsers(rampUpUsers) during (10 seconds)),
+    admins
+      .inject(rampUsers(rampUpAdmins) during (10 seconds))
+  )
+    .maxDuration(maxDuration minutes)
+    .protocols(httpProtocol)
+
 }

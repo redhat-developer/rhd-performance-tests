@@ -5,7 +5,7 @@ import io.gatling.http.Predef._
 
 object RHDConfiguration {
 
-  lazy val baseUrl:String = System.getProperty("baseUrl")
+  lazy val baseUrl: String = System.getProperty("baseUrl")
 
   val httpProtocol = http
     .baseUrl(baseUrl)

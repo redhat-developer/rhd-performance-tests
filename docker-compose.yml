@@ -7,6 +7,9 @@ services:
     working_dir: /home/performance/rhd-performance-tests
     environment:
     - RHD_PERF_TEST_URL
-    - DURATION
     - RHD_DRUPAL_USER
     - RHD_DRUPAL_PASSWORD
+    - RHD_PERF_TEST_URL
+    - RHD_MAX_DURATION
+    - RHD_USER_RAMP
+    - RHD_ADMIN_RAMP
