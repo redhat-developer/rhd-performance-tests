@@ -6,24 +6,24 @@ import scala.concurrent.duration._
 
 trait Scenarios {
 
-  val authenticatedDrupalUser = scenario("Authenticated RHD Drupal User")
+  val admins = scenario("Authenticated RHD Drupal User")
     .exec(navigateHome)
-    .pause(1 seconds, 10 seconds)
+    .pause(5 seconds, 10 seconds)
     .exec(loginAsDrupalAdmin)
-    .pause(1 seconds, 10 seconds)
+    .pause(5 seconds, 10 seconds)
     .exec(navigateToMyWorkbench)
-    .pause(1 seconds, 10 seconds)
+    .pause(5 seconds, 10 seconds)
     .exec(navigateToContent)
-    .pause(1 seconds, 10 seconds)
+    .pause(5 seconds, 10 seconds)
 
-  val unauthenticatedRHDUser = scenario("Unauthenticated RHD User")
+  val users = scenario("Unauthenticated RHD User")
     .exec(navigateHome)
-    .pause(1 seconds, 10 seconds)
+    .pause(5 seconds, 10 seconds)
     .exec(search)
-    .pause(1 seconds, 10 seconds)
+    .pause(5 seconds, 10 seconds)
     .exec(navigateToProducts)
-    .pause(1 seconds, 10 seconds)
+    .pause(5 seconds, 10 seconds)
     .exec(navigateToEvents)
-    .pause(1 seconds, 10 seconds)
+    .pause(5 seconds, 10 seconds)
 
 }
