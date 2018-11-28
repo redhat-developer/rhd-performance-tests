@@ -11,13 +11,12 @@ class LoadTest extends Simulation with Scenarios {
   lazy val rampUpAdmins: Int = System.getProperty("rampUpAdmins").toInt
 
   setUp(
-    admins.inject(
-      rampUsers(rampUpAdmins) during (60 seconds),
-      constantUsersPerSec(rampUpAdmins) during (maxDuration minutes) randomized),
     users.inject(
-      rampUsers(rampUpUsers) during (60 seconds),
-      constantUsersPerSec(rampUpUsers) during (maxDuration minutes))
-  )
-    .maxDuration(maxDuration).protocols(httpProtocol)
+      constantConcurrentUsers(rampUpUsers) during (maxDuration minutes),
+    ),
+    admins.inject(
+      constantConcurrentUsers(rampUpAdmins) during (maxDuration minutes)
+    )
+  ).protocols(httpProtocol).maxDuration(maxDuration minutes)
 
 }
