@@ -63,14 +63,28 @@ object RHDRequests extends Simulation {
       .check(regex("Advanced Linux Commands Cheat Sheet").exists)
       .check(status.is(200))
 
-  def navigateToKCLogin =
-    http("Navigate to keycloak login page")
-      .get("/login")
+  def navigateToFuseConnectors =
+    http("Navigate To Fuse Community Page")
+      .get("/products/fuse/connectors/")
       .check(status.is(200))
+      .check(regex("Red Hat Fuse").exists)
 
-  def navigateToKCRegister =
-    http("Navigate to keycloak register page")
-      .get("/register")
+  def navigateToRHELDocsAndAPIs =
+    http("Navigate To RHEL Docs and APIs Page")
+      .get("/products/rhel/docs-and-apis/")
       .check(status.is(200))
+      .check(regex("Docs and APIs").exists)
+
+  def navigateToBuildMicroservicesPage =
+    http("Navigate To Build Microservices Page")
+      .get("/topics/microservices/")
+      .check(status.is(200))
+      .check(regex("Build Microservices").exists)
+
+  def navigateToRHELDownload =
+    http("Navigate To RHEL Download Page")
+      .get("/products/rhel/download/")
+      .check(status.is(200))
+      .check(regex("Red Hat Enterprise Linux").exists)
 
 }
