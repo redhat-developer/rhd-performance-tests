@@ -12,7 +12,7 @@ class LoadTest extends Simulation with Scenarios {
 
   setUp(
     users.inject(
-      constantConcurrentUsers(rampUpUsers) during (maxDuration minutes))
+      constantUsersPerSec(rampUpUsers) during (maxDuration minutes))
   ).protocols(httpProtocol).maxDuration(maxDuration minutes)
 
 }
